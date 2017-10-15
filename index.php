@@ -115,7 +115,7 @@
 <tr>
 	<td><div class="col-lg-4"></div>
 	<div class="col-ld-4">
-<button class="btn btn-primary" type="button" onclick="login_status()">Secure Login <b class="glyphicon glyphicon-lock"></b></button></div></td><td><p id="l_status"></p></td></tr>
+<button class="btn btn-primary" type="button" onclick="return login_status()">Secure Login <b class="glyphicon glyphicon-lock"></b></button></div></td><td><p id="l_status"></p></td></tr>
 </form>
 	</table>
 <br> 
@@ -359,7 +359,11 @@
 				{
 					if(x.readyState==4 && x.status==200)
 						{
-							document.getElementById('l_status').innerHTML=x.responseText;
+							var data=this.responseText;
+							if(data==1)
+								document.location="All_event.php";
+							else
+								document.getElementById('l_status').innerHTML="<p style='color:blue;'>Error in Logging</p><a href='index.php'>try again</a>";
 						}
 				};
 				x.open("POST","login.php",true);
@@ -369,6 +373,7 @@
 		else{
 			document.getElementById('l_status').innerHTML="<p style='color:red;'>please enter details properly</p>"
 		}
+		return;
 	}
 	function signup(f,str)
 	{

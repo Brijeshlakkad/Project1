@@ -10,11 +10,11 @@
 	if($r==1)
 	{
 	$_SESSION['UserId']=$email;
-	header("location: All_event.php");
+	echo "1";
 	}
 	else
 	{
- 	 echo "<p style='color:blue;'>Error in Logging</p><a href='index.php'>try again</a>";
+ 	 echo "0";
 	}
 ?>
 

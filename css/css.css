@@ -61,8 +61,9 @@ color:#ffffff;
 
 #signupdiv
 {
-	color:red;
-	padding-top:100px;
-	margin-top:10px;
+	padding-top:40px;
+	margin-top:20px;
 }
-
+.wel{
+	padding-top:30px;
+}

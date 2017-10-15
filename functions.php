@@ -10,5 +10,4 @@ function login_session()
 	if(!isset($_SESSION['UserId']))
 		header("Location:index.php");
 }
-
 ?>
