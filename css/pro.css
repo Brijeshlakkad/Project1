@@ -1,0 +1,35 @@
+ul ul{
+            display: none;
+}
+ul li:hover > ul{
+       display: block;
+            position: absolute;
+            left: 0px;
+            top: 50px;
+}
+.wel{
+padding:80px 20px 0px 0px;
+float:right;
+}
+hr {
+    border-top: 1px solid #c9c9c9;   
+}
+.ftr{
+    background: url(../images/shattered.png) repeat;
+    padding: 80px 0 60px 0;
+}
+.ftr address, .ftr a, .ftr p{
+    color: #fff;   
+}
+.ft_space{
+    padding: 0 10px;   
+}
+.head_udaan{
+color:#ffffff;
+}
+.information{
+color:#000000;
+font-size:25px;
+font-family:Geneva;
+padding:150px 0px 0px 0px;
+}
