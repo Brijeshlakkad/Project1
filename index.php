@@ -49,7 +49,7 @@
                 <div class="carousel-caption">
                     <h1 class="head_udaan">Udaan 2k18</h1>
                     <p>A poster with a smart tech quote would be a timely reminder in every office. Getting a quote on a wall is not a big deal. There are many sites that offer high-quality quote designs, not only on posters but also dozens of other items.</p>
-                    <p><a data-toggle="modal" href="#mymodal" class="btn btn-primary btn-large">Sign up today!</a></p>
+                    <p><a data-toggle="modal" href="#signupdiv" class="btn btn-primary btn-large">Sign up today!</a></p>
 					
                 </div>
 				
@@ -61,7 +61,7 @@
                 <div class="carousel-caption">
                     <h1>ALL TRANSPORT COVERED</h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    <p><a data-toggle="modal" href="#mymodal" class="btn btn-primary btn-large">Sign up today!</a></p>
+                    <p><a data-toggle="modal" href="#signupdiv" class="btn btn-primary btn-large">Sign up today!</a></p>
 					
                 </div>
 				 
@@ -73,7 +73,7 @@
                 <div class="carousel-caption">
                     <h1>NEW - SAFETY MODE</h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    <p><a data-toggle="modal" href="#mymodal" class="btn btn-primary btn-large">Sign up today!</a></p>
+                    <p><a data-toggle="modal" href="#signupdiv" class="btn btn-primary btn-large">Sign up today!</a></p>
 					
                 </div>
 				 </div>
@@ -83,7 +83,7 @@
 
     <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
     <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-</div>    
+</div>    /*
 <div class="modal fade" id="mymodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
          		   <div class="modal-dialog">
              		   <div class="modal-content">
@@ -126,76 +126,84 @@
                     </div>
                 </div>
            </div>
-</div>
-<div class="modal fade" id="signupmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-         		   <div class="modal-dialog">
-             		   <div class="modal-content">
-               		    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h3 class="modal-title"><center>Sing Up!</center></h3>
-                    </div>
-                    <div class="modal-body">
+</div> */
+<div id="signupdiv">
+<h3><center>Sing Up!</center></h3>
 <table cellspacing="5px" cellpadding="5px">
 <form name="s_form" method="post" enctype="multipart/form-data" class="form-horizontal tpad" >
 <tr>
-<td>
-<div class="form-group">
-	<label for="name" class="col-lg-2 control-label">Name</label>
-    	  	<div class="col-lg-10">
-              	<input type="text" name="s_name" class="form-control" id="name" style="width:250px;" autocomplete="off" required="required" onblur="signup('s_name',this.value)">
-   	    	</div>
-</div>
-</td>
-<td><p id="s_name"></p></td>
+	<td>
+	<div class="container">
+			<div class="row">
+			<div class="form-group">
+				<label for="name" class="col-lg-2 control-label">Name</label>
+						<div class="col-lg-6">
+							<input type="text" name="s_name" class="form-control" id="name" style="width:250px;" autocomplete="off" required="required" onblur="signup('s_name',this.value)">
+						</div>
+			</div>
+			</div>
+	</div>
+	</td>
+	<td><div class="col-lg-4"><p id="s_name"></p></div></td>
 </tr>
 <tr>
-<td>
-<div class="form-group">
-	<label for="mobile" class="col-lg-2 control-label">Mobile no</label>
-    	  	<div class="col-lg-10">
-              	<input type="text" name="s_mno" id="mno"  class="form-control" style="width:250px;" autocomplete="off" required="required" onblur="signup('s_mno',this.value)" />
-   	    	</div>
-</div>
-</td>
-<td><p id="s_mno"></p></td>
+	<td>
+	<div class="container">
+			<div class="row">
+			<div class="form-group">
+			<label for="mobile" class="col-lg-2 control-label">Mobile no</label>
+				<div class="col-lg-6">
+					<input type="text" name="s_mno" id="mno"  class="form-control" style="width:250px;" autocomplete="off" required="required" onblur="signup('s_mno',this.value)" />
+				</div>
+	</div>
+	</td>
+	<td><div class="col-lg-4"><p id="s_mno"></p></div></td>
 </tr>
 <tr>
-<td>
-<div class="form-group">
-	<label for="email" class="col-lg-2 control-label">Email</label>
+	<td>
+	<div class="container">
+			<div class="row">
+			<div class="form-group">
+			<label for="email" class="col-lg-2 control-label">Email</label>
     	  	<div class="col-lg-10">
               	<input type="text" name="s_email" id="email" class="form-control" style="width:250px;" autocomplete="off" required="required" onblur="signup('s_email',this.value)" />
    	    	</div>
-</div>
-</td>
-<td><p id="s_email"></p></td>
+	</div>
+	</td>
+<td><div class="col-lg-4"><p id="s_email"></p></div></td>
 </tr>
 <tr>
 <td>
-<div class="form-group">
-	<label for="password" class="col-lg-2 control-label">Password</label>
+	<div class="container">
+			<div class="row">
+			<div class="form-group">
+			<label for="password" class="col-lg-2 control-label">Password</label>
     	  	<div class="col-lg-10">
 				<input type="password" name="s_pass"  id="pass" autocomplete="off"style="width:250px;"  class="form-control" required="required" onblur="signup('s_pass',this.value)" />
    	    	</div>
-</div>
-</td>
-<td><p id="s_pass"></p></td>
+	</div>
+	</td>
+<td><div class="col-lg-4"><p id="s_pass"></p></div></td>
 </tr>
 <tr>
-<td>
-<div class="form-group">
-	<label for="cpassword" class="col-lg-2 control-label">Conform Password</label>
+	<td>
+	<div class="container">
+			<div class="row">
+			<div class="form-group">
+			<label for="cpassword" class="col-lg-2 control-label">Conform Password</label>
     	  	<div class="col-lg-10">
 				<input type="password" name="s_cpass"  id="cpass" autocomplete="off" style="width:250px;" class="form-control" required="required" onblur="signup('s_cpass',this.value)" />
    	    	</div>
-</div>
-</td>
-<td><p id="s_cpass"></p></td>
+	</div>
+	</td>
+<td><div class="col-lg-4"><p id="s_cpass"></p></div></td>
 </tr>
 <tr>
-<td>
-<div class="form-group">
-	<label for="college" class="col-lg-2 control-label">College</label>
+	<td>
+	<div class="container">
+			<div class="row">
+			<div class="form-group">
+			<label for="college" class="col-lg-2 control-label">College</label>
     	  	<div class="col-lg-10">
               	<select name="s_college" id="college" style="width:250px;" autocomplete="off" required onblur="signup('s_college',this.value)" />>
 				<option value="0">(Please Select Your College)</option>
@@ -206,14 +214,16 @@
 				<option value="1">Other College</option>
 				</select>
    	    	</div>
-</div>
-</td>
-<td><p id="s_college"></p></td>
+	</div>
+	</td>
+<td><div class="col-lg-4"><p id="s_college"></p></div></td>
 </tr>
 <tr>
-<td>
-<div class="form-group">
-	<label for="branch" class="col-lg-2 control-label">Branch</label>
+	<td>
+	<div class="container">
+			<div class="row">
+			<div class="form-group">
+			<label for="branch" class="col-lg-2 control-label">Branch</label>
     	  	<div class="col-lg-10">
             <select name="s_branch" id="branch" style="width:250px;" autocomplete="off" required onblur="signup('s_branch',this.value)" />>
 			<option value="0">(Please Select Your Branch)</option>
@@ -224,9 +234,9 @@
 			<option value="1">Other Branch</option>
 			</select>
    	    	</div>
-</div>
-</td>
-<td><p id="s_branch"></p></td>
+	</div>
+	</td>
+<td><div class="col-lg-4"><p id="s_branch"></p></div></td>
 </tr>
 <tr>
 
@@ -239,15 +249,12 @@
 
 </form>
 </table>
-<a href="index.html#mymodal" data-toggle="modal"  data-dismiss="modal" aria-hidden="true">Already have a account ?</a>
-
-                    </div>
-                    <div class="modal-footer">
-                        <a href="index.php" class="btn btn-default btn-lg"><p id="s"></p>OK</a>
-                    </div>
-                </div>
-           </div>
+<a href="index.html#mymodal" >Already have a account ?</a>
 </div>
+
+
+
+
 <div class="info">
     <div class="container">
         <div class="row">
