@@ -4,7 +4,7 @@
 <title>Udaan2k18</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-<link href="css/css.css" rel="stylesheet">
+<link href="css/pro.css" rel="stylesheet">
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -49,7 +49,7 @@
                 <div class="carousel-caption">
                     <h1 class="head_udaan">Udaan 2k18</h1>
                     <p>A poster with a smart tech quote would be a timely reminder in every office. Getting a quote on a wall is not a big deal. There are many sites that offer high-quality quote designs, not only on posters but also dozens of other items.</p>
-                    <p><a data-toggle="modal" href="#signupdiv" class="btn btn-primary btn-large">Sign up today!</a></p>
+                    <p><a href="#signupdiv" class="btn btn-primary btn-large">Sign up today!</a></p>
 					
                 </div>
 				
@@ -61,7 +61,7 @@
                 <div class="carousel-caption">
                     <h1>ALL TRANSPORT COVERED</h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    <p><a data-toggle="modal" href="#signupdiv" class="btn btn-primary btn-large">Sign up today!</a></p>
+                    <p><a href="#signupdiv" class="btn btn-primary btn-large">Sign up today!</a></p>
 					
                 </div>
 				 
@@ -73,7 +73,7 @@
                 <div class="carousel-caption">
                     <h1>NEW - SAFETY MODE</h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    <p><a data-toggle="modal" href="#signupdiv" class="btn btn-primary btn-large">Sign up today!</a></p>
+                    <p><a href="#signupdiv" class="btn btn-primary btn-large">Sign up today!</a></p>
 					
                 </div>
 				 </div>
@@ -83,8 +83,8 @@
 
     <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
     <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-</div>    /*
-<div class="modal fade" id="mymodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+</div>    
+<div class="modal fade" id="loginmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
          		   <div class="modal-dialog">
              		   <div class="modal-content">
                		    <div class="modal-header">
@@ -92,119 +92,111 @@
                         <h3 class="modal-title"><center>Log in</center></h3>
                     </div>
                     <div class="modal-body">
-<center>
-<table>
+<table  cellspacing="5px" cellpadding="5px">
 <form name="l_form" method="post" class="form-horizontal tpad" role="form">
 <tr><td>
 <div class="form-group">
-	<label for="l_email" class="col-lg-2 control-label">Email</label>
-    	  	<div class="col-lg-10">
-				<input type="text" name="l_email"  autocomplete="off" style="width:250px;"  class="form-control"  onblur="login('l_email',this.value)">
+		<label for="l_email" class="col-lg-4 control-label">Email</label>
+    	 	<div class="col-lg-4">
+				<input type="text" name="l_email"  autocomplete="off" style="width:200px;"  class="form-control"  onblur="login('l_email',this.value)">
    	    	</div>
-</div>
-	</td><td><p id="l_email"></p></td><tr><td>
+   	    
+</div></td>
+<td><p id="l_email"></p></td></tr>
+<tr><td>
 <div class="form-group">
-	<label for="email" class="col-lg-2 control-label">Password</label>
-    	  	<div class="col-lg-10">
-				<input type="password" name="l_pass" autocomplete="off" style="width:250px;"  class="form-control"  onblur="login('l_pass',this.value)">
+	<label for="l_pass" class="col-lg-4 control-label">Password</label>
+    	  	<div class="col-lg-4">
+				<input type="password" name="l_pass" autocomplete="off" style="width:200px;"  class="form-control"  onblur="login('l_pass',this.value)">
    	    	</div>
-</div></td><td><p id="l_pass"></p></td>
-	<tr><td>
-<button class="btn btn-primary" type="button" onclick="login_status()">Secure Login <b class="glyphicon glyphicon-lock"></b></button>
-		</td><td><p id="l_status"></p></td</tr>
+	</div></td>
+<td><p id="l_pass"></p></td>
+</tr>
+<tr>
+	<td><div class="col-lg-4"></div>
+	<div class="col-ld-4">
+<button class="btn btn-primary" type="button" onclick="login_status()">Secure Login <b class="glyphicon glyphicon-lock"></b></button></div></td><td><p id="l_status"></p></td></tr>
 </form>
 	</table>
 <br> 
 <br>
 <a href="forget.php" >Forget Password?</a><br>
-<a href="#signupmodal" data-toggle="modal">Create a new account ?</a>
 
-</center>
 </div>
 <div class="modal-footer">
                         <a href="index.php" class="btn btn-default btn-lg">OK</a>
                     </div>
                 </div>
            </div>
-</div> */
+</div>
 <div id="signupdiv">
 <h3><center>Sing Up!</center></h3>
 <table cellspacing="5px" cellpadding="5px">
+<div class="container">
+	<div class="col-lg-4"></div>
+	<div class="col-lg-8">
 <form name="s_form" method="post" enctype="multipart/form-data" class="form-horizontal tpad" >
 <tr>
 	<td>
-	<div class="container">
-			<div class="row">
 			<div class="form-group">
-				<label for="name" class="col-lg-2 control-label">Name</label>
-						<div class="col-lg-6">
+				<label for="name" class="col-lg-4 control-label">Name</label>
+						<div class="col-lg-8">
 							<input type="text" name="s_name" class="form-control" id="name" style="width:250px;" autocomplete="off" required="required" onblur="signup('s_name',this.value)">
 						</div>
 			</div>
-			</div>
-	</div>
+			
 	</td>
-	<td><div class="col-lg-4"><p id="s_name"></p></div></td>
+	<td><p id="s_name"></p></td>
 </tr>
 <tr>
 	<td>
-	<div class="container">
-			<div class="row">
 			<div class="form-group">
-			<label for="mobile" class="col-lg-2 control-label">Mobile no</label>
-				<div class="col-lg-6">
+			<label for="mobile" class="col-lg-4 control-label">Mobile no</label>
+				<div class="col-lg-8">
 					<input type="text" name="s_mno" id="mno"  class="form-control" style="width:250px;" autocomplete="off" required="required" onblur="signup('s_mno',this.value)" />
 				</div>
 	</div>
 	</td>
-	<td><div class="col-lg-4"><p id="s_mno"></p></div></td>
+	<td><p id="s_mno"></p></td>
 </tr>
 <tr>
 	<td>
-	<div class="container">
-			<div class="row">
 			<div class="form-group">
-			<label for="email" class="col-lg-2 control-label">Email</label>
-    	  	<div class="col-lg-10">
+			<label for="email" class="col-lg-4 control-label">Email</label>
+    	  	<div class="col-lg-8">
               	<input type="text" name="s_email" id="email" class="form-control" style="width:250px;" autocomplete="off" required="required" onblur="signup('s_email',this.value)" />
    	    	</div>
 	</div>
 	</td>
-<td><div class="col-lg-4"><p id="s_email"></p></div></td>
+<td><p id="s_email"></p></td>
 </tr>
 <tr>
 <td>
-	<div class="container">
-			<div class="row">
 			<div class="form-group">
-			<label for="password" class="col-lg-2 control-label">Password</label>
-    	  	<div class="col-lg-10">
+			<label for="password" class="col-lg-4 control-label">Password</label>
+    	  	<div class="col-lg-8">
 				<input type="password" name="s_pass"  id="pass" autocomplete="off"style="width:250px;"  class="form-control" required="required" onblur="signup('s_pass',this.value)" />
    	    	</div>
 	</div>
 	</td>
-<td><div class="col-lg-4"><p id="s_pass"></p></div></td>
+<td><p id="s_pass"></p></td>
 </tr>
 <tr>
 	<td>
-	<div class="container">
-			<div class="row">
 			<div class="form-group">
-			<label for="cpassword" class="col-lg-2 control-label">Conform Password</label>
-    	  	<div class="col-lg-10">
+			<label for="cpassword" class="col-lg-4 control-label">Conform Password</label>
+    	  	<div class="col-lg-8">
 				<input type="password" name="s_cpass"  id="cpass" autocomplete="off" style="width:250px;" class="form-control" required="required" onblur="signup('s_cpass',this.value)" />
    	    	</div>
 	</div>
 	</td>
-<td><div class="col-lg-4"><p id="s_cpass"></p></div></td>
+<td><p id="s_cpass"></p></td>
 </tr>
 <tr>
 	<td>
-	<div class="container">
-			<div class="row">
 			<div class="form-group">
-			<label for="college" class="col-lg-2 control-label">College</label>
-    	  	<div class="col-lg-10">
+			<label for="college" class="col-lg-4 control-label">College</label>
+    	  	<div class="col-lg-8">
               	<select name="s_college" id="college" style="width:250px;" autocomplete="off" required onblur="signup('s_college',this.value)" />>
 				<option value="0">(Please Select Your College)</option>
 				<option value="BVM">Birla Vishvakarma Mahavidhyalaya</option>
@@ -216,15 +208,13 @@
    	    	</div>
 	</div>
 	</td>
-<td><div class="col-lg-4"><p id="s_college"></p></div></td>
+<td><p id="s_college"></p></td>
 </tr>
 <tr>
 	<td>
-	<div class="container">
-			<div class="row">
 			<div class="form-group">
-			<label for="branch" class="col-lg-2 control-label">Branch</label>
-    	  	<div class="col-lg-10">
+			<label for="branch" class="col-lg-4 control-label">Branch</label>
+    	  	<div class="col-lg-8">
             <select name="s_branch" id="branch" style="width:250px;" autocomplete="off" required onblur="signup('s_branch',this.value)" />>
 			<option value="0">(Please Select Your Branch)</option>
 			<option value="IT">Information Technology</option>
@@ -235,21 +225,32 @@
 			</select>
    	    	</div>
 	</div>
-	</td>
-<td><div class="col-lg-4"><p id="s_branch"></p></div></td>
+	<td>
+	<p id="s_branch"></p></td>
 </tr>
 <tr>
 
 <td>
+<div class="col-lg-6"></div>
 <button class="btn btn-success"  type="button" onclick="signup_status()">Signup </button>
 </td>
-<td><p id="s_status"></p></td>
+	<td><p id="s_status"></p></td>
 
+</tr>
+<tr>
+	<td><div class="col-lg-5"></div>
+	<a data-toggle="modal" href="index.html#loginmodal" >Already have a account ?</a>
+	</td>
+	<td>
+	</td>
 </tr>
 
 </form>
-</table>
-<a href="index.html#mymodal" >Already have a account ?</a>
+	</div>
+<div class="col-lg-4"></div>
+	</div>
+	</table>
+	
 </div>
 
 

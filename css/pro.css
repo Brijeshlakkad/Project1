@@ -7,12 +7,30 @@ ul li:hover > ul{
             left: 0px;
             top: 50px;
 }
-.wel{
-padding:80px 20px 0px 0px;
-float:right;
+
+.carousel-caption{
+    z-index: 10;
 }
+.carousel-inner > .item > img{
+    position: absolute;
+    top: 50px;
+    left: 0;
+    min-width: 100%;
+    height: auto;
+}
+.carousel-inner > .item{
+    height: 500px;   
+}
+
 hr {
     border-top: 1px solid #c9c9c9;   
+}
+.info{
+    background: #ffa753 url(../images/skyline.png) repeat-x bottom;
+    padding: 80px 0;
+}
+.info small{
+    color: #eeefe9;   
 }
 .ftr{
     background: url(../images/shattered.png) repeat;
@@ -27,9 +45,23 @@ hr {
 .head_udaan{
 color:#ffffff;
 }
-.information{
-color:#000000;
-font-size:25px;
-font-family:Geneva;
-padding:150px 0px 0px 0px;
+.tpad{
+    padding-top: 20px;
 }
+.padded{
+    padding: 100px 15px;
+}
+
+@media(min-width: 768px){
+.carousel-inner > .item{
+    height: 700px;   
+}
+    
+}
+
+#signupdiv
+{
+	padding-top:30px;
+	margin-top:20px;
+}
+
