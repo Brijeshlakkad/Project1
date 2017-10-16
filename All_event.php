@@ -46,16 +46,18 @@ include "lock.php";
         <div class="col-sm-8 blog">
             <section><div>
                 <h1>IT &raquo; Events</h1><hr>
-                <p class="lead">League Of Coders</a></p>
+                <p class="lead" id="head_of_event">League Of Coders</a></p>
                 <hr>
-                <p><span class="glyphicon glyphicon-time"></span> Posted on Oct 28, 2018 at 11:00 AM</p>
+                <p id="time_of_event"><span class="glyphicon glyphicon-time"></span> Posted on Oct 28, 2018 at 11:00 AM</p>
                 <hr>
-                <img src="images/blog1.png" class="img-responsive">
+                <img id="img_of_event" src="images/blog1.png" class="img-responsive">
                 <hr>
+                <div id="div_of_event">
                 <p>If you are good in coding then this event is best for you.</p><br><p>By participating in this event you can know more about coding.There are 3 rounds in this event.</p><br><p>1. In the first round there will be a paper test of coding. In this there will time limit, for test, is 1 hour. If you will select for next round then you will get message or email from us.
 </p><br><p>2. This is buzzer round. In this,you have to be quick ,this round will between four selected team.</p><br><p>If you know the answer  then push buzzer.</p><br><p> There will also minus system in score.If you beat the four teams then you will select for final round.</p><br><p>
 3. In the final round, there will some programs, those assign to you and you have solve this program in minimum time.Whose time is minimum, he/she will winner of league of coders.</p><br><p>
 			 <hr>            <br>
+			</div>
 			 <input type="hidden" value="0" name="event_name" />
 			 <input type="submit" value="Select" class="btn btn-primary" />
 			</section>
