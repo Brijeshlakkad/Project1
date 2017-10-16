@@ -1,12 +1,13 @@
 <?php
+session_start();
 include("functions.php");
 if(isset($_POST['sub']))
-{
+{	
 	$name=protect_anything($_POST['a_name']);
 	$pass=protect_anything($_POST['a_pass']);
 	if($name=="b@gmail.com" && $pass=="123456bB")
 	{
-		$_SESSION['UserId']="Admin";
+		$_SESSION['UserId']=$name;
 		header("Location:upload_event.php");
 	}
 }

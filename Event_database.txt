@@ -1,0 +1,1 @@
+create table events (ID INT(100) NOT NULL AUTO_INCREMENT PRIMARY KEY,Name varchar(10) NOT NULL UNIQUE,Catagory varchar(10) NOT NULL,Description varchar(10) NOT NULL,Fees varchar(10) NOT NULL,Contact1 varchar(10) NOT NULL,Contact2 varchar(10) NOT NULL, Image longblob NOT NULL, Created datetime NOT NULL);
