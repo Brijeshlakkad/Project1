@@ -7,6 +7,7 @@
 	$sql="SELECT * FROM users WHERE Email='$email' AND Password='$password'";
 	$result=mysqli_query($con,$sql);
 	$r=mysqli_num_rows($result);
+	$row=mysqli_fetch_assoc($result);
 	if($r==1)
 	{
 	$_SESSION['UserId']=$email;

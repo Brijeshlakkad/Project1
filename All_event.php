@@ -38,6 +38,11 @@ $sql="select * from events where Catagory='Non-Tech'";
 $result=mysqli_query($con,$sql);
 $non=mysqli_num_rows($result);
 
+
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -72,7 +77,7 @@ $non=mysqli_num_rows($result);
                     <li><a href="http://www.linkedin.com">LinkedIn</a></li>
                 </ul>
             </li> 
-           	<li> <a href="show_cart.html">Event Cart</a></li>
+           	<li> <a href="show_cart.html">Event Cart <span class="badge"><?php echo $num_item; ?></span></a></li>
 			<li> <a href="logout.php">Logout</a></li>
         </ul>
     </div>
@@ -107,7 +112,7 @@ $non=mysqli_num_rows($result);
 					1. <b><?php echo $r['Contact1']; ?></b><br/>
 					2. <b><?php echo $r['Contact2']; ?></b>
 				</div><br>
-				<button class="btn" id="add_to_cart"><a href="add_cart.php?add=<?php echo $r['ID']; ?>">Add to cart</a></button>
+				<button class="btn" onClick="adding_in_cart(<?php echo $r['ID']; ?>)">Add to cart</button><p id="adding_status"></p>
 			</div>
 			<?php
 			}
@@ -207,6 +212,19 @@ function selected(str)
 				}
 		};
 		x.open("GET","load_event.php?s="+str,true);
+		x.send();
+}
+function adding_in_cart(id)
+{
+		var x=new XMLHttpRequest();
+		x.onreadystatechange=function()
+		{
+			if(this.readyState==4 && this.status==200)
+				{
+					document.getElementById("adding_status").innerHTML=this.responseText;
+				}
+		};
+		x.open("GET","add_to_cart.php?s="+id,true);
 		x.send();
 }
 </script>

@@ -15,7 +15,7 @@ $branch=protect_anything($_POST['branch']);
 		echo "<p style='color:blue;'>please login You have already submitted from once.</a>";
 		return;
 	}
-$sql="INSERT INTO users (Username,Email,Mobile,Password,College,Branch) values('$name','$email','$mobile','$password','$college','$branch')";
+$sql="INSERT INTO users (Username,Email,Mobile,Password,College,Branch,cart_items) values('$name','$email','$mobile','$password','$college','$branch','0')";
 
 if(mysqli_query($con,$sql))
 {

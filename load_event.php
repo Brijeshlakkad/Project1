@@ -15,7 +15,7 @@ if(isset($_GET['q']))
 			{
 			?>
 
-             <div id="content_of_event">
+            <div id="content_of_event">
                 <h1><?php echo $r['Catagory'] ?> &raquo; <?php echo strtoupper($r['Name']); ?></h1><hr>
                 <p id="time_of_event"><span class="glyphicon glyphicon-time"></span> Posted on <?php echo $r['Created']; ?></p>
                 <hr>
@@ -30,7 +30,7 @@ if(isset($_GET['q']))
 					1. <b><?php echo $r['Contact1']; ?></b><br/>
 					2. <b><?php echo $r['Contact2']; ?></b>
 				</div><br>
-				<button class="btn" id="add_to_cart"><a href="add_cart.php?add=<?php echo $r['ID']; ?>">Add to cart</a></button>
+				<button class="btn" onClick="adding_in_cart(<?php echo $r['ID']; ?>)">Add to cart</button>
 			</div>
 			
 <?php
