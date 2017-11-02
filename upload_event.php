@@ -21,6 +21,7 @@ unset($_SESSION['event_id']);
 			<option value="IT" >IT</option>
 			<option value="Mechanical" >Mechanical</option>
 			<option value="Civil" >Civil</option>
+			<option value="EC" >Electrical/EC</option>
 			<option value="Production" >Production</option>
 			<option value="Non-Tech" >Non-Tech</option>
 		</select></td>

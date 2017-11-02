@@ -12,9 +12,9 @@ else if($f=="a_name")
 {
 	if($g=="")
 		echo "please enter Name of Event";
-	else if(strlen($g)<=3 || strlen($g)>10)
+	else if(strlen($g)<=3 || strlen($g)>20)
 	{
-		echo "Name shold contain between 3 and 10 characters";
+		echo "Name shold contain between 3 and 20 characters";
 	}
 	else
 	{
@@ -25,9 +25,9 @@ else if($f=="a_div")
 {
 	if($g=="")
 		echo "please enter Discrption of Event";
-	else if(strlen($g)<=30 || strlen($g)>=400) 
+	else if(strlen($g)<=30 || strlen($g)>=900) 
 	{
-		echo "Dicription shold contain between 30 and 400 charcters";
+		echo "Dicription shold contain between 30 and 900 charcters";
 	}
 	else
 	{
@@ -50,6 +50,8 @@ else if($f=="a_fee")
 {
 	if($g=="")
 		echo "please enter Fees";
+	else if(!filter_var($g,FILTER_VALIDATE_INT))
+		echo "it should not contain charcters";
 	else
 		echo "Done";
 }

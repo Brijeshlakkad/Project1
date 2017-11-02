@@ -1,6 +1,47 @@
 <?php
 include "lock.php";
 include "config.php";
+$catb="IT";
+if(isset($_GET['q']))
+{
+	$catb=$_GET['q'];
+}
+$it=0;
+$cp=0;
+$me=0;
+$ci=0;
+$pro=0;
+$ec=0;
+$non=0;
+
+$sql="select * from events where Catagory='IT'";
+$result=mysqli_query($con,$sql);
+$it=mysqli_num_rows($result);
+
+$sql="select * from events where Catagory='Computer'";
+$result=mysqli_query($con,$sql);
+$cp=mysqli_num_rows($result);
+
+$sql="select * from events where Catagory='Mechanical'";
+$result=mysqli_query($con,$sql);
+$me=mysqli_num_rows($result);
+
+$sql="select * from events where Catagory='Civil'";
+$result=mysqli_query($con,$sql);
+$ci=mysqli_num_rows($result);
+
+$sql="select * from events where Catagory='Production'";
+$result=mysqli_query($con,$sql);
+$pro=mysqli_num_rows($result);
+
+$sql="select * from events where Catagory='EC'";
+$result=mysqli_query($con,$sql);
+$ec=mysqli_num_rows($result);
+
+$sql="select * from events where Catagory='Non-Tech'";
+$result=mysqli_query($con,$sql);
+$non=mysqli_num_rows($result);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -46,7 +87,7 @@ include "config.php";
         <div class="col-sm-8 blog">
             <section>
             <?php
-			$sql="select * from events where Catagory='IT'";
+			$sql="select * from events where Catagory='$catb'";
 			$result=mysqli_query($con,$sql);
 			if(!$result)
 				die("Something went wrong.");
@@ -55,32 +96,27 @@ include "config.php";
 			?>
             
              <div id="content_of_event">
-                <h1><?php echo $r['Catagory'] ?> &raquo; Events</h1><hr>
-                <p class="lead" id="head_of_event">League Of Coders</a></p>
-                <hr>
-                <p id="time_of_event"><span class="glyphicon glyphicon-time"></span> Posted on <?php echo $r['Created'] ?></p>
+                <h1><?php echo $r['Catagory'] ?> &raquo; <?php echo strtoupper($r['Name']); ?></h1><hr>
+                <p id="time_of_event"><span class="glyphicon glyphicon-time"></span> Posted on <?php echo $r['Created']; ?></p>
                 <hr>
                 <img id="img_of_event" src="images/blog1.png" class="img-responsive">
                 <hr>
                 <div id="div_of_event">
-                <p>If you are good in coding then this event is best for you.</p><br><p>By participating in this event you can know more about coding.There are 3 rounds in this event.</p><br><p>1. In the first round there will be a paper test of coding. In this there will time limit, for test, is 1 hour. If you will select for next round then you will get message or email from us.
-</p><br><p>2. This is buzzer round. In this,you have to be quick ,this round will between four selected team.</p><br><p>If you know the answer  then push buzzer.</p><br><p> There will also minus system in score.If you beat the four teams then you will select for final round.</p><br><p>
-3. In the final round, there will some programs, those assign to you and you have solve this program in minimum time.Whose time is minimum, he/she will winner of league of coders.</p><br><p>
-			 <hr>            <br>
-			</div>
+                <?php echo $r['Description']; ?>
+				</div><br>
+				<div id="fees_of_event">Fees : <?php echo $r['Fees']; ?></div><br>
+				<div id="contacts" >
+					<b>For More Information, Call to :</b><br />
+					1. <b><?php echo $r['Contact1']; ?></b><br/>
+					2. <b><?php echo $r['Contact2']; ?></b>
+				</div><br>
+				<button class="btn" id="add_to_cart"><a href="add_cart.php?add=<?php echo $r['ID']; ?>">Add to cart</a></button>
 			</div>
 			<?php
 			}
 			mysqli_close($con);
 			?>
 			</section>
-            <ul class="pagination">
-                <li><a href="#">&laquo;</a></li>
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="it1.php">2</a></li>
-                <li><a href="it2.php">3</a></li>
-                <li><a href="#">&raquo;</a></li>
-            </ul>
 	</div>
         <div class="col-sm-4 sidebar">
             <section>
@@ -95,15 +131,16 @@ include "config.php";
                 <hr>
             </section>
             <section>
+               
                 <h3 class="tpad">Tags</h3>
                 <div class="list-group tpad">
-                    <a href="All_event.php" class="list-group-item active"><span class="badge">3</span>Information Technology</a>
-                    <a href="Computer.php" class="list-group-item"><span class="badge">3</span>Compuer Science</a>
-                    <a href="Civil.php" class="list-group-item"><span class="badge">2</span>Civil Engineering</a>
-                    <a href="Mechanical.php" class="list-group-item"><span class="badge">1</span>Mechanical Engineering</a>
-                    <a href="Production.php" class="list-group-item"><span class="badge">1</span>Production Engineering</a>
-					<a href="Electrical.php" class="list-group-item"><span class="badge">2</span>Electrical/Electronics Engineering</a>
-					<a href="Nontech.php" class="list-group-item"><span class="badge">2</span>Non-Tech Events</a>                </div>
+                    <a href="All_event.php?q=IT" class="list-group-item active"><span class="badge"><?php echo $it; ?></span>Information Technology</a>
+                    <a href="All_event.php?q=Computer" class="list-group-item"><span class="badge"><?php echo $cp; ?></span>Compuer Science</a>
+                    <a href="All_event.php?q=Civil" class="list-group-item"><span class="badge"><?php echo $ci; ?></span>Civil Engineering</a>
+                    <a href="All_event.php?q=Mechanical" class="list-group-item"><span class="badge"><?php echo $me; ?></span>Mechanical Engineering</a>
+                    <a href="All_event.php?q=Producation" class="list-group-item"><span class="badge"><?php echo $pro; ?></span>Production Engineering</a>
+					<a href="All_event.php?q=EC" class="list-group-item"><span class="badge"><?php echo $ec; ?></span>Electrical/Electronics Engineering</a>
+					<a href="All_event.php?q=Non-Tech" class="list-group-item"><span class="badge"><?php echo $non; ?></span>Non-Tech Events</a>                </div>
                 <hr>
             </section>
             <section>
@@ -136,6 +173,5 @@ include "config.php";
     </div>    
 </div>    
 
-    
 </body>
 </html>

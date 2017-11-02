@@ -15,14 +15,8 @@ if($result)
 	$get_id="select * from events where Name='$name'";
 	$r_id=mysqli_query($con,$get_id);
 	$row=mysqli_fetch_assoc($r_id);
-	$r=mysqli_num_rows($r_id);
-	if($r==1)
-	{
-		$_SESSION['event_id']=$row['ID'];
-		echo "1";
-	}
-	else
-		echo "<p style='color:blue;'>Try Again</p>";
+	$_SESSION['event_id']=$row['ID'];
+	echo "1";
 }
 else{
 	echo "<p style='color:blue;'>Try Again</p>";
