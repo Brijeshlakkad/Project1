@@ -2,12 +2,6 @@
 include "lock.php";
 include "config.php";
 $catb="IT";
-add($catb);
-if(isset($_GET['q']))
-{
-	$catb=$_GET['q'];
-}
-
 $it=0;
 $cp=0;
 $me=0;
@@ -43,14 +37,7 @@ $ec=mysqli_num_rows($result);
 $sql="select * from events where Catagory='Non-Tech'";
 $result=mysqli_query($con,$sql);
 $non=mysqli_num_rows($result);
-function add($catb)
-{
-	include("config.php");
-	$sql="select * from events where Catagory='$catb'";
-	$row_result=mysqli_query($con,$sql);
-	if(!$row_result)
-		die("Something went wrong.");
-}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -72,7 +59,7 @@ function add($catb)
     </div> 
     <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-		    <li ><a href="profile.php" style="text-transform:uppercase;"><?php echo $login_session; ?></a></li>
+		    <li><a href="profile.php" style="text-transform:uppercase;"><?php echo $login_session; ?></a></li>
           	<li class="active"><a href="All_event.php">Events</a></li>
 			<li> <a href="Contact_us.php">Contact us</a></li>
 			<li> <a href="about_us.html">About us</a></li>
@@ -84,8 +71,9 @@ function add($catb)
                     <li><a href="https://plus.google.com">Google+</a></li>
                     <li><a href="http://www.linkedin.com">LinkedIn</a></li>
                 </ul>
-            </li>
-	<li> <a  href="logout.php">Logout</a></li>
+            </li> 
+           	<li> <a href="show_cart.html">Event Cart</a></li>
+			<li> <a href="logout.php">Logout</a></li>
         </ul>
     </div>
     
@@ -94,9 +82,13 @@ function add($catb)
 <div class="container padded">
     <div class="row">
         <div class="col-sm-8 blog">
-            <section>
+            <section id="update_event">
             <?php
-			while($r=mysqli_fetch_assoc($row_result))
+			$sql="select * from events where Catagory='$catb'";
+			$result=mysqli_query($con,$sql);
+			if(!$result)
+				die("Something went wrong.");
+			while($r=mysqli_fetch_assoc($result))
 			{
 			?>
             
@@ -128,24 +120,22 @@ function add($catb)
                 <h3 class="tpad">Search</h3>
                 <div class="input-group input-group-lg tpad">
                     <span class="input-group-addon glyphicon glyphicon-search"></span>
-                    <input type="text" class="form-control input-lg" placeholder="Search">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">Go!</button>
-                    </span>
+                   <form name="search_form"> <input type="text" class="form-control input-lg" onKeyUp="search(this.value)" name="searchField" placeholder="Search"></form>
                 </div>
+                <p class="table table-condensed" id="found"></p>
                 <hr>
             </section>
             <section>
                
                 <h3 class="tpad">Tags</h3>
                 <div class="list-group tpad">
-                    <a href="#" class="list-group-item active" onClick="<?php add('it') ?>"><span class="badge"><?php echo $it; ?></span>Information Technology</a>
-                    <a href="#" class="list-group-item" onClick="<?php add('cp') ?>"><span class="badge"><?php echo $cp; ?></span>Compuer Science</a>
-                    <a href="#" class="list-group-item" onClick="<?php add('ci') ?>"><span class="badge"><?php echo $ci; ?></span>Civil Engineering</a>
-                    <a href="#" class="list-group-item" onClick="<?php add('me') ?>"><span class="badge"><?php echo $me; ?></span>Mechanical Engineering</a>
-                    <a href="#" class="list-group-item" onClick="<?php add('pro') ?>"><span class="badge"><?php echo $pro; ?></span>Production Engineering</a>
-					<a href="#" class="list-group-item" onClick="<?php add('ec') ?>"><span class="badge"><?php echo $ec; ?></span>Electrical/Electronics Engineering</a>
-					<a href="#" class="list-group-item" onClick="<?php add('non') ?>"><span class="badge"><?php echo $non; ?></span>Non-Tech Events</a>                </div>
+                    <a href="#" class="list-group-item" onclick="load('IT')"><span class="badge"><?php echo $it; ?></span>Information Technology</a>
+                    <a href="#" class="list-group-item" onclick="load('Computer')"><span class="badge"><?php echo $cp; ?></span>Compuer Science</a>
+                    <a href="#" class="list-group-item" onclick="load('Civil')"><span class="badge"><?php echo $ci; ?></span>Civil Engineering</a>
+                    <a href="#" class="list-group-item" onclick="load('Mechanical')"><span class="badge"><?php echo $me; ?></span>Mechanical Engineering</a>
+                    <a href="#" class="list-group-item" onclick="load('Producation')"><span class="badge"><?php echo $pro; ?></span>Production Engineering</a>
+					<a href="#" class="list-group-item" onclick="load('EC')"><span class="badge"><?php echo $ec; ?></span>Electrical/Electronics Engineering</a>
+					<a href="#" class="list-group-item"  onclick="load('Non-Tech')"><span class="badge"><?php echo $non; ?></span>Non-Tech Events</a>                </div>
                 <hr>
             </section>
             <section>
@@ -177,6 +167,48 @@ function add($catb)
         </div>
     </div>    
 </div>    
-
+<script>
+function load(str)
+{
+		var x=new XMLHttpRequest();
+		x.onreadystatechange=function()
+		{
+			if(this.readyState==4 && this.status==200)
+				{
+					document.getElementById("update_event").innerHTML=this.responseText;
+				}
+		};
+		x.open("GET","load_event.php?q="+str,true);
+		x.send();
+}
+function search(str)
+{
+		var x=new XMLHttpRequest();
+		x.onreadystatechange=function()
+		{
+			if(this.readyState==4 && this.status==200)
+				{
+					document.getElementById("found").innerHTML=this.responseText;
+				}
+		};
+		x.open("GET","search_event.php?q="+str,true);
+		x.send();
+}
+function selected(str)
+{
+		var x=new XMLHttpRequest();
+		x.onreadystatechange=function()
+		{
+			if(this.readyState==4 && this.status==200)
+				{
+					document.getElementById("update_event").innerHTML=this.responseText;
+					document.search_form.searchField.value="";
+					document.getElementById("found").innerHTML="";
+				}
+		};
+		x.open("GET","load_event.php?s="+str,true);
+		x.send();
+}
+</script>
 </body>
 </html>
