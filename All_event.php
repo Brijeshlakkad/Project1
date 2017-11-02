@@ -2,10 +2,12 @@
 include "lock.php";
 include "config.php";
 $catb="IT";
+add($catb);
 if(isset($_GET['q']))
 {
 	$catb=$_GET['q'];
 }
+
 $it=0;
 $cp=0;
 $me=0;
@@ -41,7 +43,14 @@ $ec=mysqli_num_rows($result);
 $sql="select * from events where Catagory='Non-Tech'";
 $result=mysqli_query($con,$sql);
 $non=mysqli_num_rows($result);
-
+function add($catb)
+{
+	include("config.php");
+	$sql="select * from events where Catagory='$catb'";
+	$row_result=mysqli_query($con,$sql);
+	if(!$row_result)
+		die("Something went wrong.");
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -87,11 +96,7 @@ $non=mysqli_num_rows($result);
         <div class="col-sm-8 blog">
             <section>
             <?php
-			$sql="select * from events where Catagory='$catb'";
-			$result=mysqli_query($con,$sql);
-			if(!$result)
-				die("Something went wrong.");
-			while($r=mysqli_fetch_assoc($result))
+			while($r=mysqli_fetch_assoc($row_result))
 			{
 			?>
             
@@ -134,13 +139,13 @@ $non=mysqli_num_rows($result);
                
                 <h3 class="tpad">Tags</h3>
                 <div class="list-group tpad">
-                    <a href="All_event.php?q=IT" class="list-group-item active"><span class="badge"><?php echo $it; ?></span>Information Technology</a>
-                    <a href="All_event.php?q=Computer" class="list-group-item"><span class="badge"><?php echo $cp; ?></span>Compuer Science</a>
-                    <a href="All_event.php?q=Civil" class="list-group-item"><span class="badge"><?php echo $ci; ?></span>Civil Engineering</a>
-                    <a href="All_event.php?q=Mechanical" class="list-group-item"><span class="badge"><?php echo $me; ?></span>Mechanical Engineering</a>
-                    <a href="All_event.php?q=Producation" class="list-group-item"><span class="badge"><?php echo $pro; ?></span>Production Engineering</a>
-					<a href="All_event.php?q=EC" class="list-group-item"><span class="badge"><?php echo $ec; ?></span>Electrical/Electronics Engineering</a>
-					<a href="All_event.php?q=Non-Tech" class="list-group-item"><span class="badge"><?php echo $non; ?></span>Non-Tech Events</a>                </div>
+                    <a href="#" class="list-group-item active" onClick="<?php add('it') ?>"><span class="badge"><?php echo $it; ?></span>Information Technology</a>
+                    <a href="#" class="list-group-item" onClick="<?php add('cp') ?>"><span class="badge"><?php echo $cp; ?></span>Compuer Science</a>
+                    <a href="#" class="list-group-item" onClick="<?php add('ci') ?>"><span class="badge"><?php echo $ci; ?></span>Civil Engineering</a>
+                    <a href="#" class="list-group-item" onClick="<?php add('me') ?>"><span class="badge"><?php echo $me; ?></span>Mechanical Engineering</a>
+                    <a href="#" class="list-group-item" onClick="<?php add('pro') ?>"><span class="badge"><?php echo $pro; ?></span>Production Engineering</a>
+					<a href="#" class="list-group-item" onClick="<?php add('ec') ?>"><span class="badge"><?php echo $ec; ?></span>Electrical/Electronics Engineering</a>
+					<a href="#" class="list-group-item" onClick="<?php add('non') ?>"><span class="badge"><?php echo $non; ?></span>Non-Tech Events</a>                </div>
                 <hr>
             </section>
             <section>
