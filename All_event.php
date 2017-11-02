@@ -1,5 +1,6 @@
 <?php
 include "lock.php";
+include "config.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,7 +22,7 @@ include "lock.php";
     </div> 
     <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-		    <li ><a href="profile.php" style="text-transform:uppercase;"><?php echo $login_name; ?></a></li>
+		    <li ><a href="profile.php" style="text-transform:uppercase;"><?php echo $login_session; ?></a></li>
           	<li class="active"><a href="All_event.php">Events</a></li>
 			<li> <a href="Contact_us.php">Contact us</a></li>
 			<li> <a href="about_us.html">About us</a></li>
@@ -39,16 +40,25 @@ include "lock.php";
     </div>
     
 </nav>
-<form name="event" action="getevent.php" method="post">
 
 <div class="container padded">
     <div class="row">
         <div class="col-sm-8 blog">
-            <section><div>
-                <h1>IT &raquo; Events</h1><hr>
+            <section>
+            <?php
+			$sql="select * from events where Catagory='IT'";
+			$result=mysqli_query($con,$sql);
+			if(!$result)
+				die("Something went wrong.");
+			while($r=mysqli_fetch_assoc($result))
+			{
+			?>
+            
+             <div id="content_of_event">
+                <h1><?php echo $r['Catagory'] ?> &raquo; Events</h1><hr>
                 <p class="lead" id="head_of_event">League Of Coders</a></p>
                 <hr>
-                <p id="time_of_event"><span class="glyphicon glyphicon-time"></span> Posted on Oct 28, 2018 at 11:00 AM</p>
+                <p id="time_of_event"><span class="glyphicon glyphicon-time"></span> Posted on <?php echo $r['Created'] ?></p>
                 <hr>
                 <img id="img_of_event" src="images/blog1.png" class="img-responsive">
                 <hr>
@@ -58,10 +68,12 @@ include "lock.php";
 3. In the final round, there will some programs, those assign to you and you have solve this program in minimum time.Whose time is minimum, he/she will winner of league of coders.</p><br><p>
 			 <hr>            <br>
 			</div>
-			 <input type="hidden" value="0" name="event_name" />
-			 <input type="submit" value="Select" class="btn btn-primary" />
+			</div>
+			<?php
+			}
+			mysqli_close($con);
+			?>
 			</section>
-       
             <ul class="pagination">
                 <li><a href="#">&laquo;</a></li>
                 <li class="active"><a href="#">1</a></li>
@@ -69,7 +81,7 @@ include "lock.php";
                 <li><a href="it2.php">3</a></li>
                 <li><a href="#">&raquo;</a></li>
             </ul>
-        </div>
+	</div>
         <div class="col-sm-4 sidebar">
             <section>
                 <h3 class="tpad">Search</h3>
@@ -123,7 +135,7 @@ include "lock.php";
         </div>
     </div>    
 </div>    
-</form>
+
     
 </body>
 </html>

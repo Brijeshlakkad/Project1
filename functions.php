@@ -5,7 +5,7 @@ function protect_anything($str)
 	$str = stripslashes($str);
 	return $str;
 }
-function login_session()
+function check_session()
 {
 	if(!isset($_SESSION['UserId']))
 		header("Location:index.php");

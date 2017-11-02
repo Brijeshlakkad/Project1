@@ -25,23 +25,9 @@ if($f=="l_email")
 else if($f=="l_pass")
 {
 	$e=$_GET['e'];
-	if($e=="")
-	{
-		echo "please enter email,first";
-		return;
-	}
 	if($g=="")
 		echo "please enter password";
-	else
-	{
-		$sql="select * from users where Email='$e' AND Password='$g'";
-		$result=mysqli_query($con,$sql);
-		$r=mysqli_num_rows($result);
-		if($r==1)
-			echo "Password Matched";
-		else 
-			echo "Wrong Password";
-	}
+	
 }
 mysqli_close($con);
 ?>

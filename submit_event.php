@@ -18,7 +18,7 @@ if($result)
 	$r=mysqli_num_rows($r_id);
 	if($r==1)
 	{
-		$_SESSION['Id']=$row['ID'];
+		$_SESSION['event_id']=$row['ID'];
 		echo "1";
 	}
 	else

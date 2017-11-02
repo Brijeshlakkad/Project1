@@ -352,7 +352,7 @@
 		var pass =	document.l_form.l_pass.value;
 		var l_email=document.getElementById('l_email').innerHTML;
 		var l_pass=document.getElementById('l_pass').innerHTML;
-		if(l_email=="Email Matched" && l_pass=="Password Matched")
+		if(l_email=="Email Matched" && !(l_pass=="please enter password"))
 			{
 				var x=new XMLHttpRequest();
 				x.onreadystatechange=function()
