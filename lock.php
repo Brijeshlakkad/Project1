@@ -1,7 +1,7 @@
 <?php
+session_start();
 include "config.php";
 include "functions.php";
-session_start();
 check_session();
 $user_check=$_SESSION['UserId'];
 $r="select * from users where Email='$user_check' ";

@@ -20,9 +20,9 @@
     <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
             <li class="active"><a href="index.php">Home</a></li>
-          	<li><a href="#">Events</a></li>
-			<li> <a href="Contact.php">Contact us</a></li>
-			<li> <a href="about_us.html">About us</a></li>
+          	<li><a href="All_event.php">Events</a></li>
+			<li> <a href="Contact_us.php">Contact us</a></li>
+			<li> <a href="about_us.php">About us</a></li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Social <b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -337,13 +337,7 @@
 					document.getElementById(f).innerHTML=this.responseText;
 				}
 		};
-		if(f=="l_email")
-			x.open("GET","check_login.php?f="+f+"&q="+str+"&e=0",true);
-		else if(f=="l_pass")
-		{
-			e=document.l_form.l_email.value;
-			x.open("GET","check_login.php?f="+f+"&q="+str+"&e="+e,true);
-		}
+		x.open("GET","check_login.php?f="+f+"&q="+str,true);
 		x.send();
 	}  
 	function login_status()
@@ -352,7 +346,7 @@
 		var pass =	document.l_form.l_pass.value;
 		var l_email=document.getElementById('l_email').innerHTML;
 		var l_pass=document.getElementById('l_pass').innerHTML;
-		if(l_email=="Email Matched" && !(l_pass=="please enter password"))
+		if(l_email!="please enter email" || l_email!="not valid email" || l_pass!="please enter password")
 			{
 				var x=new XMLHttpRequest();
 				x.onreadystatechange=function()
@@ -361,7 +355,10 @@
 						{
 							var data=this.responseText;
 							if(data==1)
+							{
+								document.getElementById('l_status').innerHTML="<p style='color:green;'>Logging in....</p>";
 								document.location="All_event.php";
+							}
 							else
 								document.getElementById('l_status').innerHTML="<p style='color:blue;'>Error in Logging</p><a href='index.php'>try again</a>";
 						}

@@ -2,6 +2,7 @@
 include("lock.php");
 include("config.php");
 ini_set('display_errors','Off');
+$total=0;
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,7 +27,7 @@ ini_set('display_errors','Off');
 		    <li><a href="profile.php" style="text-transform:uppercase;"><?php echo $login_session; ?></a></li>
           	<li><a href="All_event.php">Events</a></li>
 			<li> <a href="Contact_us.php">Contact us</a></li>
-			<li> <a href="about_us.html">About us</a></li>
+			<li> <a href="about_us.php">About us</a></li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Social <b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -62,17 +63,26 @@ if($num_item!==0)
 		if(!$result)
 			die("Can't find");
 		$row=mysqli_fetch_assoc($result);
+		$total += $row['Fees'];
 ?>
 <div class="container padded">
 <div class="row" id="show">
 <div class="col-sm-offset-2 col-sm-8 col-sm-offset-2">
 <section id="show_cart_items">
-	<h2><?php echo $row['Name'] ?></h2>
+	<h2><?php echo strtoupper($row['Name']); ?></h2>
+	<div class="container">
+	<div class="row">
+	<div class="col-lg-6"> <?php echo '<img class="img-responsive" id="img_in_cart" src="data:image/jpeg;base64,'.base64_encode( $row['Image'] ).'"/>'; ?></div>
+	<div class="col-lg-6">
 	<div style="line-height: 30px;">
 		Fees : <?php echo $row['Fees']; ?><br>
-		Contact : <?php echo $row['Contact1']; ?>
+		Contact : <?php echo $row['Contact1']; ?><br>
+		<button class="btn btn-danger" onclick="remove(<?php echo $row['ID']; ?>)">Remove</button>
 	</div>
-	<button class="btn btn-danger" onclick="remove(<?php echo $row['ID']; ?>)">Remove</button>
+	</div>
+	</div>
+	</div>
+	
 </section>
 <br>
 </div>
@@ -101,6 +111,8 @@ else{
 }
 
 ?>
+<center>
+<div class="container" style="line-height: 60px;font-size: 30px;"><b>Total Bill : </b><?php echo $total; ?> ₹ <br> <a href="#" type="button" class="btn btn-default" >Payment</a></div></center>
 <script>
 var check="<?php echo $num_item; ?>";
 if(check==0)

@@ -1,4 +1,5 @@
 <?php
+include("lock.php");
 include("config.php");
 if(isset($_GET['q']))
 {
@@ -19,7 +20,7 @@ if(isset($_GET['q']))
                 <h1><?php echo $r['Catagory'] ?> &raquo; <?php echo strtoupper($r['Name']); ?></h1><hr>
                 <p id="time_of_event"><span class="glyphicon glyphicon-time"></span> Posted on <?php echo $r['Created']; ?></p>
                 <hr>
-                <img id="img_of_event" src="images/blog1.png" class="img-responsive">
+                <?php echo '<img class="img-responsive" id="img_of_event" src="data:image/jpeg;base64,'.base64_encode( $r['Image'] ).'"/>'; ?>
                 <hr>
                 <div id="div_of_event">
                 <?php echo $r['Description']; ?>
@@ -30,7 +31,25 @@ if(isset($_GET['q']))
 					1. <b><?php echo $r['Contact1']; ?></b><br/>
 					2. <b><?php echo $r['Contact2']; ?></b>
 				</div><br>
-				<button class="btn" onClick="adding_in_cart(<?php echo $r['ID']; ?>)">Add to cart</button>
+				<?php 
+				$sql2="select * from users where Email='$login_email'";
+				$select_result=mysqli_query($con,$sql2);
+				if($select_result)
+				{
+					$fetch=mysqli_fetch_assoc($select_result);
+					$items=$fetch['cart_items'];
+					$item_array=explode(",",$items);
+					$addid='onClick="adding_in_cart('.$r['ID'].')"';
+					$removeid='onClick="remove('.$r['ID'].')"';
+					if(! (in_array($r['ID'],$item_array)))
+					{
+						echo "<button class='btn' ".$addid.">Add to Cart</button>";
+					}else
+					{
+						echo "<button class='btn' ".$removeid.">Remove from Cart</button>";
+					}
+				}
+				?>	
 			</div>
 			
 <?php
@@ -68,7 +87,25 @@ if(isset($_GET['s']))
 					1. <b><?php echo $r['Contact1']; ?></b><br/>
 					2. <b><?php echo $r['Contact2']; ?></b>
 				</div><br>
-				<button class="btn" onClick="adding_in_cart(<?php echo $r['ID']; ?>)">Add to cart</button>
+				<?php 
+				$sql2="select * from users where Email='$login_email'";
+				$select_result=mysqli_query($con,$sql2);
+				if($select_result)
+				{
+					$fetch=mysqli_fetch_assoc($select_result);
+					$items=$fetch['cart_items'];
+					$item_array=explode(",",$items);
+					$addid='onClick="adding_in_cart('.$r['ID'].')"';
+					$removeid='onClick="remove('.$r['ID'].')"';
+					if(! (in_array($r['ID'],$item_array)))
+					{
+						echo "<button class='btn' ".$addid.">Add to Cart</button>";
+					}else
+					{
+						echo "<button class='btn' ".$removeid.">Remove from Cart</button>";
+					}
+				}
+				?>
 			</div>
 			
 <?php

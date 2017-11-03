@@ -20,6 +20,7 @@ if(isset($_GET['s']))
 		if(in_array($id,$item_array))
 		{
 			echo "<p style='color:red;'>item is already in cart</p>";
+			return;
 		}
 		else
 		{

@@ -38,57 +38,52 @@ $sql="select * from events where Catagory='Non-Tech'";
 $result=mysqli_query($con,$sql);
 $non=mysqli_num_rows($result);
 
-
-
-
-
-
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 <title>Udaan2k18</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="js/jquery.min.js"></script>
 <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 <link href="css/brij.css" rel="stylesheet">
-</head>
-<body>
-<?php include "nav.php"; ?>
 
+</head>
+<body onLoad="load('IT')">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div> 
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+		    <li><a href="profile.php" style="text-transform:uppercase;"><?php echo $login_session; ?></a></li>
+          	<li class="active"><a href="All_event.php">Events</a></li>
+			<li> <a href="Contact_us.php">Contact us</a></li>
+			<li> <a href="about_us.php">About us</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Social <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="http://www.facebook.com">Facebook</a></li>
+                    <li><a href="http://www.twitter.com">Twitter</a></li>
+                    <li><a href="https://plus.google.com">Google+</a></li>
+                    <li><a href="http://www.linkedin.com">LinkedIn</a></li>
+                </ul>
+            </li> 
+           	<li> <a href="show_cart.php">Event Cart <span class="badge"><?php echo $num_item; ?></span></a></li>
+			<li> <a href="logout.php">Logout</a></li>
+        </ul>
+    </div>
+</nav>
 <div class="container padded">
     <div class="row">
         <div class="col-sm-8 blog">
             <section id="update_event">
-            <?php
-			$sql="select * from events where Catagory='$catb'";
-			$result=mysqli_query($con,$sql);
-			if(!$result)
-				die("Something went wrong.");
-			while($r=mysqli_fetch_assoc($result))
-			{
-			?>
             
-             <div id="content_of_event">
-                <h1><?php echo $r['Catagory'] ?> &raquo; <?php echo strtoupper($r['Name']); ?></h1><hr>
-                <p id="time_of_event"><span class="glyphicon glyphicon-time"></span> Posted on <?php echo $r['Created']; ?></p>
-                <hr>
-                <img id="img_of_event" src="images/blog1.png" class="img-responsive">
-                <hr>
-                <div id="div_of_event">
-                <?php echo $r['Description']; ?>
-				</div><br>
-				<div id="fees_of_event">Fees : <?php echo $r['Fees']; ?></div><br>
-				<div id="contacts" >
-					<b>For More Information, Call to :</b><br />
-					1. <b><?php echo $r['Contact1']; ?></b><br/>
-					2. <b><?php echo $r['Contact2']; ?></b>
-				</div><br>
-				<button class="btn" onClick="adding_in_cart(<?php echo $r['ID']; ?>)">Add to cart</button><p id="adding_status"></p>
-			</div>
-			<?php
-			}
-			mysqli_close($con);
-			?>
 			</section>
 	</div>
         <div class="col-sm-4 sidebar">
@@ -105,7 +100,7 @@ $non=mysqli_num_rows($result);
                
                 <h3 class="tpad">Tags</h3>
                 <div class="list-group tpad">
-                    <a href="#" class="list-group-item" onclick="load('IT')"><span class="badge"><?php echo $it; ?></span>Information Technology</a>
+                    <a href="#" class="list-group-item" id="call_this_first" onclick="load('IT')"><span class="badge"><?php echo $it; ?></span>Information Technology</a>
                     <a href="#" class="list-group-item" onclick="load('Computer')"><span class="badge"><?php echo $cp; ?></span>Compuer Science</a>
                     <a href="#" class="list-group-item" onclick="load('Civil')"><span class="badge"><?php echo $ci; ?></span>Civil Engineering</a>
                     <a href="#" class="list-group-item" onclick="load('Mechanical')"><span class="badge"><?php echo $me; ?></span>Mechanical Engineering</a>
@@ -144,11 +139,16 @@ $non=mysqli_num_rows($result);
     </div>    
 </div>    
 <script>
+
 function load(str)
 {
 		var x=new XMLHttpRequest();
 		x.onreadystatechange=function()
 		{
+			if(this.readyState==3)
+				{
+					document.getElementById("update_event").innerHTML="Please wait..";
+				}
 			if(this.readyState==4 && this.status==200)
 				{
 					document.getElementById("update_event").innerHTML=this.responseText;
@@ -162,6 +162,10 @@ function search(str)
 		var x=new XMLHttpRequest();
 		x.onreadystatechange=function()
 		{
+			if(this.readyState==3)
+				{
+					document.getElementById("found").innerHTML="Please wait..";
+				}
 			if(this.readyState==4 && this.status==200)
 				{
 					document.getElementById("found").innerHTML=this.responseText;
@@ -175,6 +179,10 @@ function selected(str)
 		var x=new XMLHttpRequest();
 		x.onreadystatechange=function()
 		{
+			if(this.readyState==3)
+				{
+					document.getElementById("update_event").innerHTML="Please wait..";
+				}
 			if(this.readyState==4 && this.status==200)
 				{
 					document.getElementById("update_event").innerHTML=this.responseText;
@@ -190,6 +198,7 @@ function adding_in_cart(id)
 		var x=new XMLHttpRequest();
 		x.onreadystatechange=function()
 		{
+			
 			if(this.readyState==4 && this.status==200)
 				{
 					window.location.reload();
@@ -197,6 +206,20 @@ function adding_in_cart(id)
 				}
 		};
 		x.open("GET","add_to_cart.php?s="+id,true);
+		x.send();
+}
+function remove(id)
+{
+		var x=new XMLHttpRequest();
+		x.onreadystatechange=function()
+		{
+			if(this.readyState==4 && this.status==200)
+				{
+					window.location.reload();
+					document.getElementById("adding_status").innerHTML=this.responseText;
+				}
+		};
+		x.open("GET","remove_from_cart.php?s="+id,true);
 		x.send();
 }
 </script>
