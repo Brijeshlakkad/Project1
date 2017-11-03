@@ -68,7 +68,7 @@ if(isset($_GET['s']))
 					1. <b><?php echo $r['Contact1']; ?></b><br/>
 					2. <b><?php echo $r['Contact2']; ?></b>
 				</div><br>
-				<button class="btn" id="add_to_cart"><a href="add_cart.php?add=<?php echo $r['ID']; ?>">Add to cart</a></button>
+				<button class="btn" onClick="adding_in_cart(<?php echo $r['ID']; ?>)">Add to cart</button>
 			</div>
 			
 <?php

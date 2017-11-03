@@ -1,6 +1,6 @@
 <?php
 include "lock.php";
-include("config.php");
+include "config.php";
 if(isset($_GET['s']))
 {
 	$id=$_GET['s'];
