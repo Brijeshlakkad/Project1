@@ -17,10 +17,18 @@ $branch=protect_anything($_POST['branch']);
 	}
 $sql="INSERT INTO users (Username,Email,Mobile,Password,College,Branch,cart_items) values('$name','$email','$mobile','$password','$college','$branch','0')";
 
+$to = $email;
 if(mysqli_query($con,$sql))
 {
+	$subject = "Sign up Successfully";
+	$txt = "You have just signed up in Udaan18 web site.";
+	$headers = "From: brijeshlakka22@gmail.com" . "\r\n";
+	$txt = wordwrap($txt,70);
+	if(mail($to,$subject,$txt,$headers))
 		echo "<p style='color:green;'>Your form succefully submitted</p>";
-	
+?>
+
+<?php
 }
 else
 {

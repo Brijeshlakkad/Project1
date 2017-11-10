@@ -76,7 +76,7 @@ if(isset($_GET['s']))
                 <h1><?php echo $r['Catagory'] ?> &raquo; <?php echo strtoupper($r['Name']); ?></h1><hr>
                 <p id="time_of_event"><span class="glyphicon glyphicon-time"></span> Posted on <?php echo $r['Created']; ?></p>
                 <hr>
-                <img id="img_of_event" src="images/blog1.png" class="img-responsive">
+                <?php echo '<img class="img-responsive" id="img_of_event" src="data:image/jpeg;base64,'.base64_encode( $r['Image'] ).'"/>'; ?>
                 <hr>
                 <div id="div_of_event">
                 <?php echo $r['Description']; ?>

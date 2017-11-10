@@ -32,17 +32,19 @@ else if($f=="s_mno")
 	}
 	else
 	{
-		echo "valid Mobile Number";
+		$sql="select * from users where Mobile='$g'";
+		$result=mysqli_query($con,$sql);
+		$r=mysqli_num_rows($result);
+		if($r>0)
+			echo "Mobile Number already registered";
+		else 
+			echo "valid Mobile Number";
 	}
 }
 else if($f=="s_name")
 {
 	if($g=="")
 		echo "please enter Username";
-	else if(strlen($g)<=3)
-	{
-		echo "Username shold contain more than 3 characters";
-	}
 	else
 	{
 		echo "valid Username";
@@ -54,7 +56,7 @@ else if($f=="s_pass")
 		echo "please enter password";
 	else if((!preg_match("/^[0-9]+[a-z]+[A-Z]$/",$g)) || strlen($g)<6 || strlen($g)>12)
 	{
-		echo "Password should contain at least one lowercase and uppercase charcter and it must have length between 6 nad 12";
+		echo "Password should contain at least one lowercase and uppercase charcter and it must have length between 6 and 12";
 	}
 	else
 	{

@@ -51,22 +51,22 @@ unset($_SESSION['event_id']);
 	</tr>
 	<tr>
 		<td>Title</td>
-		<td><input type="text" name="a_name" onBlur="addEvent('a_name',this.value)" /></td>
+		<td><input type="text" name="a_name" onKeyUp="addEvent('a_name',this.value)" /></td>
 		<td><p id="a_name"></p></td>
 	</tr>
 	<tr>
 		<td>Fees</td>
-		<td><input type="text" name="a_fee" onBlur="addEvent('a_fee',this.value)" /></td>
+		<td><input type="text" name="a_fee" onKeyUp="addEvent('a_fee',this.value)" /></td>
 		<td><p id="a_fee"></p></td>
 	</tr>
 	<tr>
 		<td>Contact 1</td>
-		<td><input type="text" name="a_con1" onBlur="addEvent('a_con1',this.value)" /></td>
+		<td><input type="text" name="a_con1" onKeyUp="addEvent('a_con1',this.value)" /></td>
 		<td><p id="a_con1"></p></td>
 	</tr>
 	<tr>
 		<td>Contact 2</td>
-		<td><input type="text" name="a_con2" onBlur="addEvent('a_con2',this.value)" /></td>
+		<td><input type="text" name="a_con2" onKeyUp="addEvent('a_con2',this.value)" /></td>
 		<td><p id="a_con2"></p></td>
 	</tr>
 	<tr>

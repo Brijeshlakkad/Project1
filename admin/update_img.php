@@ -46,9 +46,20 @@
 	<img id="previewing" src="../images/noimage.png" alt="no image" />
 </div>
 </div>
-<p id="p1"></p>
+<br>
+<br>
+	<button type="button" class="btn btn-primary" onClick="back()" > Privous </button>
+<button type="button" class="btn btn-primary"  onClick="skip()" >Skip &raquo; </button>
 </center>
 <script>
+	function back()
+	{
+		history.back();
+	}
+	function skip()
+	{
+		document.location="updated_window.php#statusmodal";
+	}
 	function check()
 	{
 		document.i_form.submit();

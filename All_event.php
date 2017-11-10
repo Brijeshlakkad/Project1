@@ -104,7 +104,7 @@ $non=mysqli_num_rows($result);
                     <a href="#" class="list-group-item" onclick="load('Computer')"><span class="badge"><?php echo $cp; ?></span>Compuer Science</a>
                     <a href="#" class="list-group-item" onclick="load('Civil')"><span class="badge"><?php echo $ci; ?></span>Civil Engineering</a>
                     <a href="#" class="list-group-item" onclick="load('Mechanical')"><span class="badge"><?php echo $me; ?></span>Mechanical Engineering</a>
-                    <a href="#" class="list-group-item" onclick="load('Producation')"><span class="badge"><?php echo $pro; ?></span>Production Engineering</a>
+                    <a href="#" class="list-group-item" onclick="load('Production')"><span class="badge"><?php echo $pro; ?></span>Production Engineering</a>
 					<a href="#" class="list-group-item" onclick="load('EC')"><span class="badge"><?php echo $ec; ?></span>Electrical/Electronics Engineering</a>
 					<a href="#" class="list-group-item"  onclick="load('Non-Tech')"><span class="badge"><?php echo $non; ?></span>Non-Tech Events</a>                </div>
                 <hr>

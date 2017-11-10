@@ -20,8 +20,6 @@
     <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
 		    <li class="active"><a href="#" style="text-transform:uppercase;">Admin Login</a></li>
-			<li><a href="show_all_events">Events</a></li>
-			<li> <a href="logout.php">Logout</a></li>
         </ul>
     </div>
 </nav>

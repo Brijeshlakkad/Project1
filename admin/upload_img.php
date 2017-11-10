@@ -46,7 +46,7 @@
 	<img id="previewing" src="../images/noimage.png" alt="no image" />
 </div>
 </div>
-<p id="p1"></p>
+
 </center>
 <script>
 	function check()

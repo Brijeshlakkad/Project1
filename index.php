@@ -98,7 +98,7 @@
 <div class="form-group">
 		<label for="l_email" class="col-lg-4 control-label">Email</label>
     	 	<div class="col-lg-4">
-				<input type="text" name="l_email"  autocomplete="off" style="width:200px;"  class="form-control"  onblur="login('l_email',this.value)">
+				<input type="text" name="l_email"  autocomplete="off" style="width:200px;"  class="form-control" onChange="login('l_email',this.value)">
    	    	</div>
    	    
 </div></td>
@@ -107,7 +107,7 @@
 <div class="form-group">
 	<label for="l_pass" class="col-lg-4 control-label">Password</label>
     	  	<div class="col-lg-4">
-				<input type="password" name="l_pass" autocomplete="off" style="width:200px;"  class="form-control"  onblur="login('l_pass',this.value)">
+				<input type="password" name="l_pass" autocomplete="off" style="width:200px;"  class="form-control"  onChange="login('l_pass',this.value)">
    	    	</div>
 	</div></td>
 <td><p id="l_pass"></p></td>
@@ -141,7 +141,7 @@
 			<div class="form-group">
 				<label for="name" class="col-lg-4 control-label">Name</label>
 						<div class="col-lg-8">
-							<input type="text" name="s_name" class="form-control" id="name" style="width:250px;" autocomplete="off" required="required" onblur="signup('s_name',this.value)">
+							<input type="text" name="s_name" class="form-control" id="name" style="width:250px;" autocomplete="off" required="required" onChange="signup('s_name',this.value)">
 						</div>
 			</div>
 			
@@ -153,7 +153,7 @@
 			<div class="form-group">
 			<label for="mobile" class="col-lg-4 control-label">Mobile no</label>
 				<div class="col-lg-8">
-					<input type="text" name="s_mno" id="mno"  class="form-control" style="width:250px;" autocomplete="off" required="required" onblur="signup('s_mno',this.value)" />
+					<input type="text" name="s_mno" id="mno"  class="form-control" style="width:250px;" autocomplete="off" required="required" onChange="signup('s_mno',this.value)" />
 				</div>
 	</div>
 	</td>
@@ -164,7 +164,7 @@
 			<div class="form-group">
 			<label for="email" class="col-lg-4 control-label">Email</label>
     	  	<div class="col-lg-8">
-              	<input type="text" name="s_email" id="email" class="form-control" style="width:250px;" autocomplete="off" required="required" onblur="signup('s_email',this.value)" />
+              	<input type="text" name="s_email" id="email" class="form-control" style="width:250px;" autocomplete="off" required="required" onChange="signup('s_email',this.value)" />
    	    	</div>
 	</div>
 	</td>
@@ -175,7 +175,7 @@
 			<div class="form-group">
 			<label for="password" class="col-lg-4 control-label">Password</label>
     	  	<div class="col-lg-8">
-				<input type="password" name="s_pass"  id="pass" autocomplete="off"style="width:250px;"  class="form-control" required="required" onblur="signup('s_pass',this.value)" />
+				<input type="password" name="s_pass"  id="pass" autocomplete="off"style="width:250px;"  class="form-control" required="required" onChange="signup('s_pass',this.value)" />
    	    	</div>
 	</div>
 	</td>
@@ -186,7 +186,7 @@
 			<div class="form-group">
 			<label for="cpassword" class="col-lg-4 control-label">Conform Password</label>
     	  	<div class="col-lg-8">
-				<input type="password" name="s_cpass"  id="cpass" autocomplete="off" style="width:250px;" class="form-control" required="required" onblur="signup('s_cpass',this.value)" />
+				<input type="password" name="s_cpass"  id="cpass" autocomplete="off" style="width:250px;" class="form-control" required="required" onChange="signup('s_cpass',this.value)" />
    	    	</div>
 	</div>
 	</td>
@@ -197,7 +197,7 @@
 			<div class="form-group">
 			<label for="college" class="col-lg-4 control-label">College</label>
     	  	<div class="col-lg-8">
-              	<select name="s_college" id="college" style="width:250px;" autocomplete="off" required onblur="signup('s_college',this.value)" />>
+              	<select name="s_college" id="college" style="width:250px;" autocomplete="off" required onChange="signup('s_college',this.value)" />>
 				<option value="0">(Please Select Your College)</option>
 				<option value="BVM">Birla Vishvakarma Mahavidhyalaya</option>
 				<option value="GHPatel">G.H.Patel Enginnering College</option>
@@ -215,7 +215,7 @@
 			<div class="form-group">
 			<label for="branch" class="col-lg-4 control-label">Branch</label>
     	  	<div class="col-lg-8">
-            <select name="s_branch" id="branch" style="width:250px;" autocomplete="off" required onblur="signup('s_branch',this.value)" />>
+            <select name="s_branch" id="branch" style="width:250px;" autocomplete="off" required onChange="signup('s_branch',this.value)" />>
 			<option value="0">(Please Select Your Branch)</option>
 			<option value="IT">Information Technology</option>
 			<option value="CP">Computer Science</option>

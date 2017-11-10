@@ -61,7 +61,9 @@ if($num_item!==0)
 		$sql="select * from events where ID='$item'";
 		$result=mysqli_query($con,$sql);
 		if(!$result)
-			die("Can't find");
+		{
+			continue;
+		}
 		$row=mysqli_fetch_assoc($result);
 		$total += $row['Fees'];
 ?>
@@ -112,7 +114,7 @@ else{
 
 ?>
 <center>
-<div class="container" style="line-height: 60px;font-size: 30px;"><b>Total Bill : </b><?php echo $total; ?> ₹ <br> <a href="#" type="button" class="btn btn-default" >Payment</a></div></center>
+<div class="container" style="line-height: 60px;font-size: 30px;"><b>Total Bill : </b><?php echo $total; ?> ₹ <br> <a href="payment.php" type="button" class="btn btn-default" >Payment</a></div></center>
 <script>
 var check="<?php echo $num_item; ?>";
 if(check==0)

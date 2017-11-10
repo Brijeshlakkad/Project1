@@ -63,22 +63,22 @@ unset($_SESSION['event_id']);
 	</tr>
 	<tr>
 		<td>Title</td>
-		<td><input type="text" name="a_name" value="<?php echo $r['Name']; ?>" onBlur="addEvent('a_name',this.value)" /></td>
+		<td><input type="text" name="a_name" value="<?php echo $r['Name']; ?>" onkeyup="addEvent('a_name',this.value)" /></td>
 		<td><p id="a_name"></p></td>
 	</tr>
 	<tr>
 		<td>Fees</td>
-		<td><input type="text" name="a_fee" value="<?php echo $r['Fees']; ?>" onBlur="addEvent('a_fee',this.value)" /></td>
+		<td><input type="text" name="a_fee" value="<?php echo $r['Fees']; ?>" onkeyup="addEvent('a_fee',this.value)" /></td>
 		<td><p id="a_fee"></p></td>
 	</tr>
 	<tr>
 		<td>Contact 1</td>
-		<td><input type="text" name="a_con1" value="<?php echo $r['Contact1']; ?>" onBlur="addEvent('a_con1',this.value)" /></td>
+		<td><input type="text" name="a_con1" value="<?php echo $r['Contact1']; ?>" onkeyup="addEvent('a_con1',this.value)" /></td>
 		<td><p id="a_con1"></p></td>
 	</tr>
 	<tr>
 		<td>Contact 2</td>
-		<td><input type="text" name="a_con2" value="<?php echo $r['Contact2']; ?>" onBlur="addEvent('a_con2',this.value)" /></td>
+		<td><input type="text" name="a_con2" value="<?php echo $r['Contact2']; ?>" onkeyup="addEvent('a_con2',this.value)" /></td>
 		<td><p id="a_con2"></p></td>
 	</tr>
 	<tr>
@@ -130,7 +130,7 @@ function check()
 		var e_con1=document.getElementById('a_con1').innerHTML;
 		var e_con2=document.getElementById('a_con2').innerHTML;
 		var e_fee=document.getElementById('a_fee').innerHTML;
-		if(e_name=="Done" &&  e_cata=="Done" && e_fee=="Done" && e_con1=="Done" && e_con2=="Done" && xcounter!=0)
+		if((e_name=="Done" || name!="") &&  (e_cata=="Done"  || cata!="") && (e_fee=="Done" || fee!="") && (e_con1=="Done"  || con1!="") &&( e_con2=="Done"  || con2!="") && xcounter!=0)
 			{
 				document.getElementById('a_status').innerHTML="<p style='color:green;'>Event Updated</p>";
 				document.getElementById('a_form').submit();
