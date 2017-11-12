@@ -37,7 +37,6 @@ $ec=mysqli_num_rows($result);
 $sql="select * from events where Catagory='Non-Tech'";
 $result=mysqli_query($con,$sql);
 $non=mysqli_num_rows($result);
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -50,6 +49,16 @@ $non=mysqli_num_rows($result);
 
 </head>
 <body onLoad="load('IT')">
+<?php
+if(isset($_POST['searchField']))
+{
+?>
+<script>
+search_form_submit();
+</script>
+<?php
+}
+?>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -91,7 +100,10 @@ $non=mysqli_num_rows($result);
                 <h3 class="tpad">Search</h3>
                 <div class="input-group input-group-lg tpad">
                     <span class="input-group-addon glyphicon glyphicon-search"></span>
-                   <form name="search_form"> <input type="text" class="form-control input-lg" onKeyUp="search(this.value)" name="searchField" placeholder="Search"></form>
+                   <form onsubmit="search_form_submit()" name="search_form" method="post"> <input type="text" class="form-control input-lg" onKeyUp="search(this.value)" name="searchField" placeholder="Search"><input type="submit" value="" onsubmit="search_form_submit()" hidden/></form>
+                   <span class="input-group-btn">
+                        <input class="btn btn-default" type="button" value="Go!" onClick="search_form_submit()">
+                    </span>
                 </div>
                 <p class="table table-condensed" id="found"></p>
                 <hr>
@@ -222,6 +234,26 @@ function remove(id)
 		x.open("GET","remove_from_cart.php?s="+id,true);
 		x.send();
 }
+function search_form_submit()
+	{
+		str=document.search_form.searchField.value;
+		var x=new XMLHttpRequest();
+		x.onreadystatechange=function()
+		{
+			if(this.readyState==3)
+				{
+					document.getElementById("update_event").innerHTML="Please wait..";
+				}
+			if(this.readyState==4 && this.status==200)
+				{
+					document.getElementById("update_event").innerHTML=this.responseText;
+					document.search_form.searchField.value="";
+					document.getElementById("found").innerHTML="";
+				}
+		};
+		x.open("GET","load_event.php?s="+str,true);
+		x.send();
+	}
 </script>
 </body>
 </html>

@@ -62,7 +62,9 @@
 	}
 	function check()
 	{
-		document.i_form.submit();
+		var a = document.getElementById("a_img").innerHTML;
+		if(a=="")
+			document.i_form.submit();
 	}
 $(document).ready(function (e) {
 $(function() {

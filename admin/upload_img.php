@@ -31,7 +31,7 @@
 	<tr>
 	<div class="form-group">
 		<td><label for="a_image" class="control-label">Image of Event</label></td>
-		<td><input class="form-control" type="file" id="file" name="image" onBlur="capture()" /></td>
+		<td><input class="form-control" type="file" id="file" name="image" /></td>
 		<td><p id="a_img"></p></td>
 	</tr>
 	<tr>
@@ -46,12 +46,13 @@
 	<img id="previewing" src="../images/noimage.png" alt="no image" />
 </div>
 </div>
-
 </center>
 <script>
 	function check()
 	{
-		document.i_form.submit();
+		var a = document.getElementById("a_img").innerHTML;
+		if(a=="")
+			document.i_form.submit();
 	}
 $(document).ready(function (e) {
 $(function() {
