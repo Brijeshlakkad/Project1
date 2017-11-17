@@ -22,7 +22,7 @@ include('lock.php');
     </div> 
     <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-		    <li><a href="profile.php" style="text-transform:uppercase;"><?php echo $login_session; ?></a></li>
+		    <li class="active"><a href="profile.php" style="text-transform:uppercase;"><?php echo $login_session; ?></a></li>
           	<li><a href="All_event.php">Events</a></li>
 			<li> <a href="Contact_us.php">Contact us</a></li>
 			<li> <a href="about_us.php">About us</a></li>
@@ -35,7 +35,7 @@ include('lock.php');
                     <li><a href="http://www.linkedin.com">LinkedIn</a></li>
                 </ul>
             </li> 
-           	<li class="active"> <a href="show_cart.php">Event Cart <span class="badge"><?php echo $num_item; ?></span></a></li>
+           	<li> <a href="show_cart.php">Event Cart <span class="badge"><?php echo $num_item; ?></span></a></li>
 			<li> <a href="logout.php">Logout</a></li>
         </ul>
     </div>
