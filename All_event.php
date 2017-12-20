@@ -45,8 +45,8 @@ $non=mysqli_num_rows($result);
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="js/jquery.min.js"></script>
 <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-<link href="css/brij.css" rel="stylesheet">
-
+<link href="css/pro.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 </head>
 <body onLoad="load('IT')">
 <?php
